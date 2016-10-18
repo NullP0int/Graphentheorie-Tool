@@ -19,6 +19,10 @@ public class CalculateDegrees {
      **/
     public Degree getDegreesFromAdjMatrix(int[][] adjMatrix) {
 
+        if(adjMatrix == null) {
+            return null;
+        }
+
         Degree result = new Degree();
         result.vertexDegrees = new int[adjMatrix.length];
         result.smallDelta = adjMatrix.length;
@@ -54,6 +58,10 @@ public class CalculateDegrees {
      * and returns a Degree-Object containing all this values.
      **/
     public Degree getDegreesFromAdjList(int[][] adjList) {
+
+        if(adjList == null) {
+            return null;
+        }
 
         Degree result = new Degree();
         result.vertexDegrees = new int[adjList.length];

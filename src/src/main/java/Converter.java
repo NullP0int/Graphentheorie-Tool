@@ -36,40 +36,6 @@ public class Converter {
         return BasicAdjList;
     }
 
-    // Convert the adjMatrix[[] to adjList[][]
-    // THIS CRAB DON'T WORK ...
-    /* public int[][] MatrixToAdjList(int[][] adjMatrix) {
-
-        int[][] adjList = new int[0][0];
-        int count, count2;
-        int vertex;
-
-        for(int i = 0; i < adjMatrix.length; i++) {
-
-            count = 0;
-            vertex = 0;
-
-            for(int j = 0; j < adjMatrix[i].length; j++) {
-                if( adjMatrix[i][j] == 1 ) {
-                    // count how much values needed for the ajdList
-                    count++;
-                }
-            }
-
-            adjList = new int[adjMatrix.length][count];
-            count2 = 0;
-
-            for(int j = 0; j < adjMatrix[i].length; j++) {
-                if( adjMatrix[i][j] == 1 ) {
-                    adjList[i][count2] = vertex;
-                    count2++;
-                }
-                vertex++;
-            }
-        }
-        return adjList;
-    } */
-
     // Converts the List<ArrayList> to Matrix[][]
     public int[][] ListToMatrix(List<ArrayList> BasicList) {
 

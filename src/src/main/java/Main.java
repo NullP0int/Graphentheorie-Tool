@@ -18,7 +18,6 @@ public class Main {
         CalculateDegrees calcDegree = new CalculateDegrees();
         CalculateDegrees.Degree degree;
 
-
         System.out.println("MatrixA (adjMatrixA)");
         System.out.println(convert.MatrixToString(exampleDelivery_U1A_1.adjMatrixA));
         List<ArrayList> adjList = convert.MatrixToList(exampleDelivery_U1A_1.adjMatrixA);
@@ -37,8 +36,8 @@ public class Main {
         System.out.println("All degrees from adjMatrixA");
         degree = calcDegree.getDegreesFromAdjMatrix(exampleDelivery_U1A_1.adjMatrixA);
 
-        for(int i = 0; i < degree.vertexDegrees.length; i++) {
-            System.out.println("Vertex: " + i + ", Degree = " + degree.vertexDegrees[i] );
+        for (int i = 0; i < degree.vertexDegrees.length; i++) {
+            System.out.println("Vertex: " + i + ", Degree = " + degree.vertexDegrees[i]);
         }
 
         System.out.println("smallDelta: " + degree.smallDelta);
@@ -48,12 +47,11 @@ public class Main {
         System.out.println("All degrees from adjListeB");
         degree = calcDegree.getDegreesFromAdjList(exampleDelivery_U1A_1.adjListeB);
 
-        for(int i = 0; i < degree.vertexDegrees.length; i++) {
-            System.out.println("Vertex: " + i + ", Degree = " + degree.vertexDegrees[i] );
+        for (int i = 0; i < degree.vertexDegrees.length; i++) {
+            System.out.println("Vertex: " + i + ", Degree = " + degree.vertexDegrees[i]);
         }
 
         System.out.println("smallDelta: " + degree.smallDelta);
         System.out.println("bigDelta " + degree.bigDelta);
-
     }
 }
