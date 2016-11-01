@@ -1,4 +1,4 @@
-package src.main.java;
+package src.main.java.Functions;
 
 
 /**
@@ -29,12 +29,16 @@ public class CalculateDegrees {
         result.bigDelta = 0;
 
         for(int i = 0; i < adjMatrix.length; i++) {
-
             for(int j = 0; j < adjMatrix[i].length; j++) {
 
                 // Fill the vertexDegrees with correct degrees
-                if(adjMatrix[i][j] == 1) {
-                    result.vertexDegrees[i]++;
+                if(adjMatrix[i][j] > 0) {
+
+                    if(i == j) {
+                        result.vertexDegrees[i] = result.vertexDegrees[i] + (2 * adjMatrix[i][j]);
+                    } else {
+                        result.vertexDegrees[i] = result.vertexDegrees[i] + adjMatrix[i][j];
+                    }
                 }
             }
 
@@ -69,8 +73,14 @@ public class CalculateDegrees {
         result.bigDelta = 0;
 
         for(int i = 0; i < adjList.length; i++) {
+            for(int j = 0; j < adjList[i].length; j++) {
 
-            result.vertexDegrees[i] = adjList[i].length;
+                if(adjList[i][j] == i) {
+                    result.vertexDegrees[i] = result.vertexDegrees[i] + 2;
+                } else {
+                    result.vertexDegrees[i]++;
+                }
+            }
 
             // Check for smallest (smallDelta)
             if(result.vertexDegrees[i] < result.smallDelta) {

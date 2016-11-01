@@ -1,6 +1,13 @@
 package src.main.java;
 
 import src.main.java.Deliveries.Example_Delivery_U1A1;
+import src.main.java.Deliveries.Example_Delivery_U2A1;
+import src.main.java.Exceptions.MultiplyMatrixException;
+import src.main.java.Functions.CalculateWays;
+import src.main.java.Functions.Converter;
+import src.main.java.Search.Context;
+import src.main.java.Search.DepthFirst;
+import src.main.java.Uebungen.Uebung1;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,47 +18,28 @@ import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws MultiplyMatrixException {
 
         Converter convert = new Converter();
-        Example_Delivery_U1A1 exampleDelivery_U1A_1 = new Example_Delivery_U1A1();
-        CalculateDegrees calcDegree = new CalculateDegrees();
-        CalculateDegrees.Degree degree;
 
-        System.out.println("MatrixA (adjMatrixA)");
-        System.out.println(convert.MatrixToString(exampleDelivery_U1A_1.adjMatrixA));
-        List<ArrayList> adjList = convert.MatrixToList(exampleDelivery_U1A_1.adjMatrixA);
-        System.out.println("ListA (adjListeA)");
-        System.out.println(convert.ListToString(adjList));
+        //U1
+        //Example_Delivery_U1A1 exampleDelivery_U1A_1 = new Example_Delivery_U1A1();
+        //Uebung1 uebung1 = new Uebung1(exampleDelivery_U1A_1, convert);
 
+        //U2 a1
+        Example_Delivery_U2A1 exampleDelivery_U2A_1 = new Example_Delivery_U2A1();
+        //CalculateWays calcWays = new CalculateWays();
+        //System.out.println(calcWays.calcWaysToMatrixToString(exampleDelivery_U2A_1.a, 8));
 
-        System.out.println("ListB (adjListeB)");
-        List<ArrayList> adjListB = (convert.adjListToList(exampleDelivery_U1A_1.adjListeB));
-        System.out.println(convert.ListToString(adjListB));
-        int[][] MatrixB = convert.ListToMatrix(adjListB);
-        System.out.println("MatrixB (adjMatrixB)");
-        System.out.println(convert.MatrixToString(MatrixB));
+        // U2 a2
+        // First print the Matrix and the List
+        System.out.println(convert.MatrixToString(exampleDelivery_U2A_1.DFSBFSGraph));
+        List<ArrayList> DFSBFSList = convert.MatrixToList(exampleDelivery_U2A_1.DFSBFSGraph);
+        System.out.println(convert.ListToString(DFSBFSList));
 
+        Context search = new Context(new DepthFirst());
+        search.executeSearch(DFSBFSList);
 
-        System.out.println("All degrees from adjMatrixA");
-        degree = calcDegree.getDegreesFromAdjMatrix(exampleDelivery_U1A_1.adjMatrixA);
-
-        for (int i = 0; i < degree.vertexDegrees.length; i++) {
-            System.out.println("Vertex: " + i + ", Degree = " + degree.vertexDegrees[i]);
-        }
-
-        System.out.println("smallDelta: " + degree.smallDelta);
-        System.out.println("bigDelta " + degree.bigDelta + "\n");
-
-
-        System.out.println("All degrees from adjListeB");
-        degree = calcDegree.getDegreesFromAdjList(exampleDelivery_U1A_1.adjListeB);
-
-        for (int i = 0; i < degree.vertexDegrees.length; i++) {
-            System.out.println("Vertex: " + i + ", Degree = " + degree.vertexDegrees[i]);
-        }
-
-        System.out.println("smallDelta: " + degree.smallDelta);
-        System.out.println("bigDelta " + degree.bigDelta);
+        // This is the end for U2
     }
 }
