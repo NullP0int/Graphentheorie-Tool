@@ -28,8 +28,8 @@ public class Main {
 
         //U2 a1
         Example_Delivery_U2A1 exampleDelivery_U2A_1 = new Example_Delivery_U2A1();
-        //CalculateWays calcWays = new CalculateWays();
-        //System.out.println(calcWays.calcWaysToMatrixToString(exampleDelivery_U2A_1.a, 8));
+        CalculateWays calcWays = new CalculateWays();
+        System.out.println(calcWays.calcWaysToMatrixToString(exampleDelivery_U2A_1.a, 8));
 
         // U2 a2
         // First print the Matrix and the List

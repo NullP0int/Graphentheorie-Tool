@@ -1,5 +1,6 @@
 package src.main.java.Functions;
 
+import src.main.java.Exceptions.AddMatrixException;
 import src.main.java.Exceptions.MultiplyMatrixException;
 
 /**
@@ -16,9 +17,11 @@ public class CalculateWays extends AbstractToString {
 
         try {
             for(int i = 1; i < maxlength; i++) {
-                result = (calcMatrix.multiplyMatrix(result, matrix));
+                result = calcMatrix.addMatrix(result, calcMatrix.multiplyMatrix(result, matrix));
             }
         } catch (MultiplyMatrixException e) {
+            e.printStackTrace();
+        } catch (AddMatrixException e) {
             e.printStackTrace();
         }
 
