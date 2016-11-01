@@ -9,20 +9,17 @@ import src.main.java.Exceptions.MultiplyMatrixException;
 
 public class CalculateWays extends AbstractToString {
 
-    // Calculates the maximal ways with the given length
-    public int[][] calcWaysToMatrix(int[][] matrix, int maxlength) {
+    CalculateMatrix calcMatrix = new CalculateMatrix();
 
-        CalculateMatrix calcMatrix = new CalculateMatrix();
+    // Calculates the maximal ways with the given length
+    public int[][] calcWaysToMatrix(int[][] matrix, int maxlength) throws AddMatrixException {
+
         int[][] result = matrix;
 
-        try {
-            for(int i = 1; i < maxlength; i++) {
-                result = calcMatrix.addMatrix(result, calcMatrix.multiplyMatrix(result, matrix));
+        if(maxlength > 1) {
+            for(int i = 2; i <= maxlength; i++) {
+                result = calcMatrix.addMatrix(result, calcMatrix.matrixHochX(matrix, i));
             }
-        } catch (MultiplyMatrixException e) {
-            e.printStackTrace();
-        } catch (AddMatrixException e) {
-            e.printStackTrace();
         }
 
         return result;
@@ -30,7 +27,7 @@ public class CalculateWays extends AbstractToString {
     // end calculate ways
 
     // calculates the maximal ways and return it as string
-    public String calcWaysToMatrixToString(int[][] matrix, int maxlength) throws MultiplyMatrixException {
+    public String calcWaysToMatrixToString(int[][] matrix, int maxlength) throws MultiplyMatrixException, AddMatrixException {
         int[][] result = calcWaysToMatrix(matrix, maxlength);
         return super.MatrixToString(result);
     }

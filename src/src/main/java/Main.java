@@ -2,7 +2,9 @@ package src.main.java;
 
 import src.main.java.Deliveries.Example_Delivery_U1A1;
 import src.main.java.Deliveries.Example_Delivery_U2A1;
+import src.main.java.Exceptions.AddMatrixException;
 import src.main.java.Exceptions.MultiplyMatrixException;
+import src.main.java.Functions.CalculateMatrix;
 import src.main.java.Functions.CalculateWays;
 import src.main.java.Functions.Converter;
 import src.main.java.Search.Context;
@@ -18,7 +20,7 @@ import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args) throws MultiplyMatrixException {
+    public static void main(String[] args) throws MultiplyMatrixException, AddMatrixException {
 
         Converter convert = new Converter();
 

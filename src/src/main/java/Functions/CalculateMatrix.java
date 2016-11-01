@@ -72,6 +72,23 @@ public class CalculateMatrix extends AbstractToString {
         return result;
     }
 
+    // ********** matrix to the power of x **********
+    public int[][] matrixHochX(int[][] matrix, int maxlength) {
+
+        int[][] result = matrix;
+
+        try {
+            for(int i = 1; i < maxlength; i++) {
+                result = multiplyMatrix(result, matrix);
+            }
+        } catch (MultiplyMatrixException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+
+    }
+
     // add the given Matrix and print the result-matrix
     public String multiplyMatrixToString(int[][] a, int[][] b) throws MultiplyMatrixException {
         int[][] result = multiplyMatrix(a, b);
