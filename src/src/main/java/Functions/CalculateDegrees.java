@@ -42,15 +42,7 @@ public class CalculateDegrees {
                 }
             }
 
-            // Check for smallest (smallDelta)
-            if(result.vertexDegrees[i] < result.smallDelta) {
-                result.smallDelta = result.vertexDegrees[i];
-            }
-
-            // Check for bigger degree (bigDelta)
-            if(result.vertexDegrees[i] > result.bigDelta) {
-                result.bigDelta = result.vertexDegrees[i];
-            }
+            checkDeltas(result, i);
         }
 
         //	Calculate and set the values of 'result' here
@@ -82,18 +74,24 @@ public class CalculateDegrees {
                 }
             }
 
-            // Check for smallest (smallDelta)
-            if(result.vertexDegrees[i] < result.smallDelta) {
-                result.smallDelta = result.vertexDegrees[i];
-            }
-
-            // Check for bigger degree (bigDelta)
-            if(result.vertexDegrees[i] > result.bigDelta) {
-                result.bigDelta = result.vertexDegrees[i];
-            }
+            checkDeltas(result, i);
         }
 
         //	Calculate and set the values of 'result' here
+        return result;
+    }
+
+    public Degree checkDeltas(Degree result, int i) {
+        // Check for smallest (smallDelta)
+        if(result.vertexDegrees[i] < result.smallDelta) {
+            result.smallDelta = result.vertexDegrees[i];
+        }
+
+        // Check for bigger degree (bigDelta)
+        if(result.vertexDegrees[i] > result.bigDelta) {
+            result.bigDelta = result.vertexDegrees[i];
+        }
+
         return result;
     }
 
