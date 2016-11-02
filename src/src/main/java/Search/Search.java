@@ -7,11 +7,11 @@ import java.util.List;
  * Created by NullP0int in November 2016.
  */
 
-public class Context {
+public class Search {
 
     private IsearchStrategy strategy;
 
-    public Context(IsearchStrategy strategy) {
+    public Search(IsearchStrategy strategy) {
         this.strategy = strategy;
     }
 

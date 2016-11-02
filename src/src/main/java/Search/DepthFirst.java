@@ -19,7 +19,7 @@ public class DepthFirst implements IsearchStrategy {
     // 2 = Back     = processed
 
     // time variable
-    private int time = 0;
+    private int time;
     private int[] d;
     private int[] f;
 
@@ -36,6 +36,8 @@ public class DepthFirst implements IsearchStrategy {
         for(int i = 0; i < graphList.size(); i++) {
             color[i] = 0;
         }
+
+        time = 0;
 
         // start discovering
         for(int i = 0; i < graphList.size(); i++) {
@@ -71,13 +73,15 @@ public class DepthFirst implements IsearchStrategy {
         time++;
         d[vertexNumber] = time;
 
-        ArrayList vertexList = graphList.get(vertexNumber);
+        ArrayList<Integer> vertexList = graphList.get(vertexNumber);
 
         // check the following vertexes
         for(int i = 0; i < vertexList.size(); i++) {
 
-            if(color[i] == 0) {
-                DFSVisit(i);
+            int vertex = vertexList.get(i);
+
+            if(color[vertex] == 0) {
+                DFSVisit(vertex);
             }
         }
 
