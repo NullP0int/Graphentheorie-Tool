@@ -86,6 +86,6 @@ public class DepthFirst implements IsearchStrategy {
             Sf = Sf + f[i] + ", ";
         }
 
-        return (Sd + "\n" + Sf);
+        return ("DFS-number: " + Sd + "\n" + "Finish-number: " + Sf + "\n");
     }
 }

@@ -32,8 +32,8 @@ public class Uebung2 {
         // U2 a2
         // First print the Matrix and the List
         System.out.println("This is your search-graph as matrix");
-        System.out.println(convert.MatrixToString(exampleDelivery_U2.DFSBFSGraph));
-        List<ArrayList> DFSBFSList = convert.MatrixToList(exampleDelivery_U2.DFSBFSGraph);
+        System.out.println(convert.MatrixToString(exampleDelivery_U2.VLGraph));
+        List<ArrayList> DFSBFSList = convert.MatrixToList(exampleDelivery_U2.VLGraph);
         System.out.println("This is your search-graph as list");
         System.out.println(convert.ListToString(DFSBFSList));
 
@@ -43,10 +43,10 @@ public class Uebung2 {
         System.out.println(search.printSearch());
 
         // BreadthFirst is not working correctly at the moment. I will fix this soon :-)
-        //System.out.println("BreadthFirst Search: ");
+        System.out.println("BreadthFirst Search: ");
         search.setSearch(new BreadthFirst());
         search.executeSearch(DFSBFSList);
-        //System.out.println(search.printSearch());
+        System.out.println(search.printSearch());
 
         // This is the end for U2
 
