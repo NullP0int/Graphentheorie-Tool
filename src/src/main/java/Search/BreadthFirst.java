@@ -10,92 +10,119 @@ import java.util.List;
 
 public class BreadthFirst implements IsearchStrategy {
 
-    private int count;
+    private int[] color;
+    // colors
+    // 0 = White    = undiscovered
+    // 1 = Gray     = discovered
+    // 2 = Back     = processed
+
+    // Array of visited vertexes
+    private boolean[] visited;
+
+    // distance (-10 is infinite)
+    private int[] d;
+
+    // BFS-Number
     private int[] b;
-    private boolean[] r;
-    private LinkedList<Integer> W = new LinkedList<>();
+
+    // queue
+    private LinkedList<Integer> queue;
+
+    // private graphList
     private List<ArrayList> graphList;
-    private List<ArrayList> B = new ArrayList<>();
+
+    // Counter for visited vertex
+    private int BFSCounter;
+
+    private int distanceCounter;
 
     @Override
     public void search(List<ArrayList> graphList) {
 
-        int v, w;
+        // initialize variables
+        d = new int[graphList.size()];
         b = new int[graphList.size()];
-        r = new boolean[graphList.size()];
+        visited = new boolean[graphList.size()];
         this.graphList = graphList;
-        count = 0;
+        BFSCounter = 0;
+        distanceCounter = 0;
+        queue = new LinkedList<>();
 
-        v = getStartNode();
+        int vertex;
+        int discVertex;
 
-        while(v != -1 ) {
-            W.add(v);
-            r[v] = true;
+        for(int i = 0; i < graphList.size(); i++) {
+            // set all to infinite
+            d[i] = -10;
+            b[i] = -10;
+            visited[i] = false;
+        }
 
-            while(!W.isEmpty()) {
-                w = W.removeFirst();
-                BFSVisit(w);
+        vertex = getStartNode();
+        d[vertex] = distanceCounter;
+
+        while(vertex != -1) {
+            queue.add(vertex);
+            visited[vertex] = true;
+
+            while(!queue.isEmpty()) {
+                discVertex = queue.removeFirst();
+                //if(d[discVertex] == -10) {
+                BFSVisit(discVertex);
+                //}
             }
 
-            v = getStartNode();
+            vertex = getStartNode();
+
         }
-
-
-
-        // --------- JUST FOR TEST -------------- //
-        String Sd = "";
-        ArrayList e;
-        for(int i = 0; i < b.length; i++) {
-            Sd = Sd + b[i] + ", ";
-        }
-
-        String Sf = "";
-        for(int i = 0; i < B.size(); i++) {
-
-            e = B.get(i);
-            System.out.println(e.get(0) + " , " + e.get(1));
-
-            //Sf = Sf + B[i] + ", ";
-        }
-
-        System.out.println(Sd);
-        System.out.println(Sf);
 
     }
 
-    private void BFSVisit(int v) {
+    private void BFSVisit(int discVertex) {
 
-        ArrayList nv;
-        int w;
+        ArrayList<Integer> vertexList = graphList.get(discVertex);
+        BFSCounter++;
+        b[discVertex] = BFSCounter;
+        //d[discVertex] = 0;
+        distanceCounter++;
+        int tmpVertex;
 
-        count++;
+        for(int i = 0; i < vertexList.size(); i++) {
 
-        b[v] = count;
-        nv = graphList.get(v);
+            tmpVertex = vertexList.get(i);
 
-        for(int i = 0; i < nv.size(); i++) {
-            w = (Integer) nv.get(i);
+            if(d[tmpVertex] == -10) {
+                visited[tmpVertex] = true;
+                d[tmpVertex] = d[discVertex] + 1;
 
-            if(!r[w]) {
-                ArrayList<Integer> tmp = new ArrayList();
-                tmp.add(v);
-                tmp.add(w);
-
-                B.add(tmp);
-
-                r[w] = true;
+                queue.add(tmpVertex);
             }
         }
     }
+
 
     private int getStartNode() {
         for(int v = 0; v < b.length; v++) {
-            if(b[v] == 0) {
+            if(b[v] == -10) {
                 return v;
             }
         }
 
         return -1;
+    }
+
+    public String printSearch() {
+        String Sd = "";
+        for(int i = 0; i < b.length; i++) {
+            Sd = Sd + b[i] + ", ";
+        }
+
+        String Sf = "";
+        for(int i = 0; i < d.length; i++) {
+            Sf = Sf + d[i] + ", ";
+        }
+
+        return (Sd + "\n" + Sf);
     }
 
 }

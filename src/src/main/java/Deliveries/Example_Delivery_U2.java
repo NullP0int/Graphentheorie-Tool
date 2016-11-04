@@ -2,7 +2,7 @@ package src.main.java.Deliveries;
 
 import java.util.*;
 
-public class Example_Delivery_U2A1 {
+public class Example_Delivery_U2 {
 
 
     // Adjazenzmatrix
@@ -82,4 +82,15 @@ public class Example_Delivery_U2A1 {
             {0, 1, 0, 0, 0, 0, 0, 0}
     };
 
+    public static int[][] BSPGraph44 = {
+            {0, 1, 0, 1, 1, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 1, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 1, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 1, 1, 1, 0},
+            {0, 0, 1, 0, 0, 0, 0, 0, 1},
+            {0, 0, 0, 1, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 1, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0}
+    };
 }

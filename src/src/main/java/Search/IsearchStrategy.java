@@ -9,6 +9,8 @@ import java.util.List;
 
 public interface IsearchStrategy {
 
-    public void search(List<ArrayList> graphList);
+    void search(List<ArrayList> graphList);
+
+    String printSearch();
 
 }

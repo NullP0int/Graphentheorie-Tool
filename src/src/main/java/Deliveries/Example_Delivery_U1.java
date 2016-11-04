@@ -2,7 +2,7 @@ package src.main.java.Deliveries;
 
 import java.util.*;
 
-public class Example_Delivery_U1A1 {
+public class Example_Delivery_U1 {
 
     // Adjazenzmatrix zu Aufgabe a
     public static int[][] adjMatrixA =

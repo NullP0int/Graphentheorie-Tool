@@ -15,8 +15,16 @@ public class Search {
         this.strategy = strategy;
     }
 
+    public void setSearch(IsearchStrategy strategy) {
+        this.strategy = strategy;
+    }
+
     public void executeSearch(List<ArrayList> graphList) {
         strategy.search(graphList);
+    }
+
+    public String printSearch() {
+        return strategy.printSearch();
     }
 
 }

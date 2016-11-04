@@ -46,22 +46,6 @@ public class DepthFirst implements IsearchStrategy {
             }
 
         }
-
-
-        // --------- JUST FOR TEST -------------- //
-        String Sd = "";
-        for(int i = 0; i < d.length; i++) {
-            Sd = Sd + d[i] + ", ";
-        }
-
-        String Sf = "";
-        for(int i = 0; i < f.length; i++) {
-            Sf = Sf + f[i] + ", ";
-        }
-
-        System.out.println(Sd);
-        System.out.println(Sf);
-
     }
 
     private void DFSVisit(int vertexNumber) {
@@ -89,5 +73,19 @@ public class DepthFirst implements IsearchStrategy {
         color[vertexNumber] = 2;
         time++;
         f[vertexNumber] = time;
+    }
+
+    public String printSearch() {
+        String Sd = "";
+        for(int i = 0; i < d.length; i++) {
+            Sd = Sd + d[i] + ", ";
+        }
+
+        String Sf = "";
+        for(int i = 0; i < f.length; i++) {
+            Sf = Sf + f[i] + ", ";
+        }
+
+        return (Sd + "\n" + Sf);
     }
 }
